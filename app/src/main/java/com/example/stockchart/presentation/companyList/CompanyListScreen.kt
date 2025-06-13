@@ -1,6 +1,8 @@
 package com.example.stockchart.presentation.companyList
 
+import android.annotation.SuppressLint
 import android.net.Uri
+import androidx.activity.ComponentActivity
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -23,14 +25,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.stockchart.domain.model.Company
+import com.example.stockchart.presentation.utils.SelectedCompanyViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
 
 
+@SuppressLint("ContextCastToActivity")
 @Composable
 fun CompanyListScreen(
 //    onCompanyClick: (Company) -> Unit,
@@ -39,14 +44,15 @@ fun CompanyListScreen(
 ){
     val state = viewModel.state
     val context = LocalContext.current
+    val sharedViewModel: SelectedCompanyViewModel = viewModel(LocalContext.current as ComponentActivity)
 
     // Handle Navigation
     LaunchedEffect(Unit) {
         viewModel.eventFlow.collectLatest { event ->
             when (event) {
                 is CompanyListEvent.OnCompanyClick -> {
-                    val companyJson = Uri.encode(Json.encodeToString(event.company))
-                    navController.navigate("chart_screen/$companyJson")
+                    sharedViewModel.selectedCompany = event.company
+                    navController.navigate("chart_screen")
                 }
             }
         }

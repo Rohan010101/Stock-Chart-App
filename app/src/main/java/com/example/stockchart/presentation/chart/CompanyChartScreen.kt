@@ -1,6 +1,8 @@
 package com.example.stockchart.presentation.chart
 
+import android.annotation.SuppressLint
 import android.graphics.Color
+import androidx.activity.ComponentActivity
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -18,25 +20,30 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.stockchart.domain.model.Company
+import com.example.stockchart.presentation.utils.SelectedCompanyViewModel
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.utils.ColorTemplate
 
+@SuppressLint("ContextCastToActivity")
 @Composable
 fun CompanyChartScreen(
 //    company: Company,
     navController: NavController,
-    viewModel: CompanyChartViewModel = hiltViewModel()
+    viewModel: SelectedCompanyViewModel = hiltViewModel()
 ) {
-    val state = viewModel.state
-    val company = state.company ?: return
+
+    val viewModel: SelectedCompanyViewModel = viewModel(LocalContext.current as ComponentActivity)
+    val company = viewModel.selectedCompany ?: return
 
     Column(modifier = Modifier.fillMaxSize().padding(16.dp)) {
         Row(

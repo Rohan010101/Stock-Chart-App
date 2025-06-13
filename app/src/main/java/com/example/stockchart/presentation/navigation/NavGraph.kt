@@ -42,15 +42,10 @@ import com.example.stockchart.presentation.companyList.CompanyListScreen
 
 
 fun NavGraphBuilder.appNavGraph(navController: NavController) {
-    composable(route = "company_list"){
+    composable(route = "company_list") {
         CompanyListScreen(navController)
     }
-    composable(
-        route = "chat_screen/{company}",
-        arguments = listOf(navArgument("company") {
-            type = NavType.StringType
-        })
-    ) {
+    composable(route = "chart_screen") {
         CompanyChartScreen(navController)
     }
 }
