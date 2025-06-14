@@ -18,7 +18,6 @@ import com.github.mikephil.charting.data.BarEntry
 fun BarChartView(
     data: List<Float>,
     barColor: Color,
-    textColor: Color,
     label: String
 ) {
     AndroidView(
@@ -36,16 +35,16 @@ fun BarChartView(
             val entries = data.mapIndexed { index, value -> BarEntry(index.toFloat(), value) }
             val dataSet = BarDataSet(entries, label).apply {
                 color = barColor.toArgb()
-                valueTextColor = textColor.toArgb()
+                valueTextColor = Color.Black.toArgb()
             }
 
             chart.data = BarData(dataSet)
             chart.setBackgroundColor(Color.Transparent.toArgb())
-            chart.description.textColor = textColor.toArgb()
-            chart.legend.textColor = textColor.toArgb()
-            chart.axisLeft.textColor = textColor.toArgb()
+            chart.description.textColor = Color.Black.toArgb()
+            chart.legend.textColor = Color.Black.toArgb()
+            chart.axisLeft.textColor = Color.Black.toArgb()
             chart.axisRight.isEnabled = false
-            chart.xAxis.textColor = textColor.toArgb()
+            chart.xAxis.textColor = Color.Black.toArgb()
             chart.xAxis.setDrawGridLines(false)
             chart.invalidate()
         }

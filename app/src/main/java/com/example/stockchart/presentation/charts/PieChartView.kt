@@ -18,7 +18,6 @@ import com.github.mikephil.charting.data.PieEntry
 fun PieChartView(
     isTrending: Boolean,
     highlightColor: Color,
-    textColor: Color,
     label: String
 ) {
     AndroidView(
@@ -42,13 +41,13 @@ fun PieChartView(
                     highlightColor.toArgb(),
                     Color.Gray.toArgb()
                 )
-                valueTextColor = textColor.toArgb()
+                valueTextColor = Color.Black.toArgb()
             }
 
             chart.data = PieData(dataSet)
             chart.setBackgroundColor(Color.Transparent.toArgb())
-            chart.description.textColor = textColor.toArgb()
-            chart.legend.textColor = textColor.toArgb()
+            chart.description.textColor = Color.Black.toArgb()
+            chart.legend.textColor = Color.Black.toArgb()
             chart.invalidate()
         }
     )

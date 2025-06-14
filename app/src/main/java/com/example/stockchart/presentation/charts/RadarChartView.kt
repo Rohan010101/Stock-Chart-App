@@ -18,7 +18,6 @@ import com.github.mikephil.charting.data.RadarEntry
 fun RadarChartView(
     data: List<Float>,
     lineColor: Color,
-    textColor: Color,
     label: String
 ) {
     AndroidView(
@@ -39,15 +38,15 @@ fun RadarChartView(
                 color = lineColor.toArgb()
                 fillColor = lineColor.toArgb()
                 setDrawFilled(true)
-                valueTextColor = textColor.toArgb()
+                valueTextColor = Color.Black.toArgb()
             }
 
             chart.data = RadarData(dataSet)
             chart.setBackgroundColor(Color.Transparent.toArgb())
-            chart.description.textColor = textColor.toArgb()
-            chart.legend.textColor = textColor.toArgb()
-            chart.yAxis.textColor = textColor.toArgb()
-            chart.xAxis.textColor = textColor.toArgb()
+            chart.description.textColor = Color.Black.toArgb()
+            chart.legend.textColor = Color.Black.toArgb()
+            chart.yAxis.textColor = Color.Black.toArgb()
+            chart.xAxis.textColor = Color.Black.toArgb()
             chart.invalidate()
         }
     )

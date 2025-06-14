@@ -17,7 +17,6 @@ import com.github.mikephil.charting.data.LineDataSet
 fun LineChartView(
     data: List<Float>,
     lineColor: Color,
-    textColor: Color,
     label: String
 ) {
     AndroidView(
@@ -35,7 +34,7 @@ fun LineChartView(
             val entries = data.mapIndexed { index, value -> Entry(index.toFloat(), value) }
             val dataSet = LineDataSet(entries, label).apply {
                 color = lineColor.toArgb()
-                valueTextColor = textColor.toArgb()
+                valueTextColor = Color.Black.toArgb()
                 lineWidth = 2f
                 setCircleColor(lineColor.toArgb())
                 setDrawValues(true)
@@ -45,11 +44,11 @@ fun LineChartView(
 
             chart.data = LineData(dataSet)
             chart.setBackgroundColor(Color.Transparent.toArgb())
-            chart.description.textColor = textColor.toArgb()
-            chart.legend.textColor = textColor.toArgb()
-            chart.axisLeft.textColor = textColor.toArgb()
+            chart.description.textColor = Color.Black.toArgb()
+            chart.legend.textColor = Color.Black.toArgb()
+            chart.axisLeft.textColor = Color.Black.toArgb()
             chart.axisRight.isEnabled = false
-            chart.xAxis.textColor = textColor.toArgb()
+            chart.xAxis.textColor = Color.Black.toArgb()
             chart.xAxis.setDrawGridLines(false)
             chart.invalidate()
         }

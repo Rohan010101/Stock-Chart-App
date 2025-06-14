@@ -2,7 +2,6 @@ package com.example.stockchart.presentation.utils
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -23,7 +22,6 @@ fun InfoCard(
     title: String,
     value: String,
     backgroundColor: Color,
-    textColor: Color
 ) {
     Card(
         elevation = CardDefaults.elevatedCardElevation(defaultElevation = 4.dp),
@@ -42,7 +40,8 @@ fun InfoCard(
             Text(
                 text = "$title:",
                 style = MaterialTheme.typography.labelMedium.copy(
-                    fontSize = 14.sp
+                    fontSize = 14.sp,
+                    color = Color.Black
                 ),
                 maxLines = 1
             )
@@ -50,7 +49,8 @@ fun InfoCard(
             Text(
                 text = value,
                 style = MaterialTheme.typography.bodyMedium.copy(
-                    fontSize = 16.sp
+                    fontSize = 16.sp,
+                    color = Color.Black
                 ),
                 maxLines = 1
             )

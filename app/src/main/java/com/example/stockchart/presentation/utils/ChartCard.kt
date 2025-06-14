@@ -28,9 +28,9 @@ fun ChartCard(title: String, backgroundColor: Color, content: @Composable () -> 
             Text(
                 text = title,
                 style = MaterialTheme.typography.titleMedium.copy(
-                    fontSize = 20.sp
-                ),
-                color = MaterialTheme.colorScheme.onSurface
+                    fontSize = 20.sp,
+                    color = Color.Black
+                )
             )
             Spacer(modifier = Modifier.height(10.dp))
             content()
