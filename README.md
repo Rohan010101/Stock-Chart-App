@@ -52,5 +52,5 @@ Through this project, I explored:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/stock-chart-app.git
+git clone https://github.com/Rohan010101/Stock-Chart-App.git
 cd stock-chart-app
