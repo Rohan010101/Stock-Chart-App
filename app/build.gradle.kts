@@ -96,5 +96,11 @@ dependencies {
     // KotlinX Serialization
     implementation(libs.kotlinx.serialization.json)
 
+    // Material3
+    implementation(libs.material3)
+
+    // Swipe Refresh
+    implementation(libs.accompanist.swiperefresh)
+
 
 }

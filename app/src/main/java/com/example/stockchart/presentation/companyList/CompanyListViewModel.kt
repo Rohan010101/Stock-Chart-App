@@ -9,6 +9,8 @@ import com.example.stockchart.domain.model.Company
 import com.example.stockchart.domain.repository.CompanyRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -25,6 +27,11 @@ class CompanyListViewModel @Inject constructor(
     private val _eventFlow = MutableSharedFlow<CompanyListEvent>()
     val eventFlow = _eventFlow.asSharedFlow()
 
+    private val _searchQuery = MutableStateFlow("")
+    val searchQuery: StateFlow<String> = _searchQuery
+
+    private var allCompanies: List<Company> = emptyList()
+
     init {
         loadCompanies()
     }
@@ -32,17 +39,41 @@ class CompanyListViewModel @Inject constructor(
     private fun loadCompanies() {
         viewModelScope.launch {
             state = state.copy(isLoading = true)
-            val data = repository.getCompanies()
+            allCompanies = repository.getCompanies()
             state = state.copy(
-                companies = data,
+                companies = allCompanies,
                 isLoading = false
             )
         }
     }
 
+    fun refreshCompanies() {
+        loadCompanies()
+    }
+
+
     fun onCompanyClicked(company: Company) {
         viewModelScope.launch {
             _eventFlow.emit(CompanyListEvent.OnCompanyClick(company))
         }
+    }
+
+    fun onSearchQueryChange(query: String) {
+        _searchQuery.value = query
+        filterCompanies()
+    }
+
+    private fun filterCompanies() {
+        val query = _searchQuery.value.trim().lowercase()
+
+        val filtered = if (query.isBlank()) {
+            allCompanies
+        } else {
+            allCompanies.filter { company ->
+                company.name.lowercase().contains(query) ||
+                        company.symbol.lowercase().contains(query)
+            }
+        }
+        state = state.copy(companies = filtered)
     }
 }
