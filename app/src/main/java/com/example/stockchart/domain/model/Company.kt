@@ -9,5 +9,10 @@ import kotlinx.serialization.Serializable
 data class Company(
     val name: String,
     val symbol: String,
-    val stockValues: List<Float>
+    val sector: String,
+    val stockValues: List<Float>,
+    val changePercent: String,
+    val marketCap: String,
+    val volume: String,
+    val isTrending: Boolean
 ): Parcelable

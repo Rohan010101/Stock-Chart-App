@@ -192,7 +192,7 @@ fun CompanyListScreen(
                     if (state.companies.isEmpty() && !state.isLoading) {
                         item {
                             Box(
-                                modifier = Modifier.fillMaxSize(),
+                                modifier = Modifier.fillMaxSize().padding(8.dp),
                                 contentAlignment = Alignment.Center
                             ) {
                                 Text(

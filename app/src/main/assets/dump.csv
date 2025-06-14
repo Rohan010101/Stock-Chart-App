@@ -1,22 +1,22 @@
-name,symbol,price1,price2,price3,price4,price5
-Apple Inc.,AAPL,150,152,151,155,158
-Google LLC,GOOGL,2800,2790,2785,2770,2750
-Amazon Inc.,AMZN,3300,3330,3350,3320,3360
-Microsoft Corp.,MSFT,290,295,294,296,298
-Tesla Inc.,TSLA,720,710,700,690,680
-Meta Platforms,FB,340,345,343,347,349
-Netflix Inc.,NFLX,500,490,480,470,460
-Nvidia Corp.,NVDA,220,225,230,235,240
-Intel Corp.,INTC,50,48,47,45,44
-Adobe Inc.,ADBE,600,590,610,605,595
-Salesforce Inc.,CRM,210,208,205,203,200
-Spotify Tech.,SPOT,190,192,194,193,195
-Zoom Video,ZOOM,120,115,110,108,105
-Snap Inc.,SNAP,60,62,61,59,58
-Shopify Inc.,SHOP,1400,1380,1370,1350,1320
-PayPal Holdings,PYPL,180,175,178,170,168
-Uber Tech.,UBER,45,47,46,44,43
-Airbnb Inc.,ABNB,150,153,155,157,160
-Block Inc.,SQ,240,230,225,235,238
-Palantir Tech.,PLTR,25,26,24,23,22
-Twitter Inc.,TWTR,60,59,61,62,63
+name,symbol,sector,price1,price2,price3,price4,price5,changePercent,marketCap,volume,isTrending
+Apple Inc.,AAPL,Technology,150,152,151,155,158,+2.6%,2.6T,89M,true
+Google LLC,GOOGL,Technology,2800,2790,2785,2770,2750,-1.8%,1.8T,35M,false
+Amazon Inc.,AMZN,E-Commerce,3300,3330,3350,3320,3360,+0.9%,1.7T,49M,true
+Microsoft Corp.,MSFT,Technology,290,295,294,296,298,+2.7%,2.5T,38M,true
+Tesla Inc.,TSLA,Automotive,720,710,700,690,680,-5.5%,870B,62M,false
+Meta Platforms,FB,Technology,340,345,343,347,349,+2.6%,980B,31M,false
+Netflix Inc.,NFLX,Entertainment,500,490,480,470,460,-8.0%,250B,20M,false
+Nvidia Corp.,NVDA,Semiconductors,220,225,230,235,240,+9.0%,1.2T,66M,true
+Intel Corp.,INTC,Semiconductors,50,48,47,45,44,-12.0%,180B,27M,false
+Adobe Inc.,ADBE,Software,600,590,610,605,595,-0.8%,310B,15M,false
+Salesforce Inc.,CRM,Software,210,208,205,203,200,-4.8%,210B,18M,false
+Spotify Tech.,SPOT,Entertainment,190,192,194,193,195,+2.6%,45B,13M,false
+Zoom Video,ZOOM,Communication,120,115,110,108,105,-12.5%,40B,11M,false
+Snap Inc.,SNAP,Social Media,60,62,61,59,58,-3.3%,30B,10M,false
+Shopify Inc.,SHOP,E-Commerce,1400,1380,1370,1350,1320,-5.7%,85B,22M,false
+PayPal Holdings,PYPL,Fintech,180,175,178,170,168,-6.7%,90B,24M,false
+Uber Tech.,UBER,Transport,45,47,46,44,43,-4.4%,85B,26M,false
+Airbnb Inc.,ABNB,Travel,150,153,155,157,160,+6.6%,110B,14M,true
+Block Inc.,SQ,Fintech,240,230,225,235,238,-0.8%,70B,19M,false
+Palantir Tech.,PLTR,Data Analytics,25,26,24,23,22,-12.0%,45B,21M,false
+Twitter Inc.,TWTR,Social Media,60,59,61,62,63,+5.0%,50B,17M,false

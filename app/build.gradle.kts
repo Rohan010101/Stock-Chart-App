@@ -80,6 +80,7 @@ dependencies {
     implementation (libs.ui)
     implementation (libs.androidx.navigation.compose)
     implementation (libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.foundation) // for official Pager
 
 
     // MPAndroidChart for charts

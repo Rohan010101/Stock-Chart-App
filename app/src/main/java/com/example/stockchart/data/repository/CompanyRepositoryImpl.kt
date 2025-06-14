@@ -13,28 +13,37 @@ class CompanyRepositoryImpl(
     private val context: Context
 ): CompanyRepository {
     override suspend fun getCompanies(): List<Company> = withContext(Dispatchers.IO) {
-        Log.d("CompanyRepositoryImpl", "getCompanies fun started ")
         val companies = mutableListOf<Company>()
-        Log.d("CompanyRepositoryImpl", "val companies done ")
-
         val inputStream = context.assets.open("dump.csv")
-        Log.d("CompanyRepositoryImpl", "inputStream done ")
-
         val reader = BufferedReader(InputStreamReader(inputStream))
-        Log.d("CompanyRepositoryImpl", "reader done ")
 
 
         reader.readLine() // skip header
-        Log.d("CompanyRepositoryImpl", "reader.readLine() done ")
 
         reader.forEachLine { line ->
             val parts = line.split(",")
-            if (parts.size >= 3) {
+            if (parts.size >= 12) {
                 val name = parts[0]
                 val symbol = parts[1]
-                val values = parts.drop(2).mapNotNull { it.toFloatOrNull() }
-                companies.add(Company(name, symbol, values))
-            }
+                val sector = parts[2]
+                val stockValues = parts.subList(3, 8).mapNotNull { it.toFloatOrNull() }
+                val changePercent = parts[8]
+                val marketCap = parts[9]
+                val volume = parts[10]
+                val isTrending = parts[11].trim().lowercase() == "true"
+
+                companies.add(
+                    Company(
+                        name = name,
+                        symbol = symbol,
+                        sector = sector,
+                        stockValues = stockValues,
+                        changePercent = changePercent,
+                        marketCap = marketCap,
+                        volume = volume,
+                        isTrending = isTrending
+                    )
+                )            }
         }
         companies
     }
