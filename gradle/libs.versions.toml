@@ -24,6 +24,7 @@ serialization = "1.7.3"
 
 
 [libraries]
+accompanist-pager = { module = "com.google.accompanist:accompanist-pager", version.ref = "accompanistSwiperefresh" }
 accompanist-swiperefresh = { module = "com.google.accompanist:accompanist-swiperefresh", version.ref = "accompanistSwiperefresh" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "foundation" }

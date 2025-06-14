@@ -103,5 +103,8 @@ dependencies {
     // Swipe Refresh
     implementation(libs.accompanist.swiperefresh)
 
+    implementation (libs.accompanist.pager)
+
+
 
 }
